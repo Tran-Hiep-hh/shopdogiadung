@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import Header from "../components/shared/header/Header"
+import Header from "../components/shared/header/header"
 import Footer from "../components/shared/footer/Footer"
 import ProductCard from "../components/home/product-card/product-card"
 import styles from "@/app/shop/shop.module.css"

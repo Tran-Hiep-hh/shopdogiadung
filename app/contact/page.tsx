@@ -1,4 +1,4 @@
-import Header from "../components/shared/header/Header"
+import Header from "../components/shared/header/header"
 import Footer from "../components/shared/footer/Footer"
 import ContactForm from "../components/contact-form/contact-form"
 import ContactInfo from "../components/contact-info/contact-info"

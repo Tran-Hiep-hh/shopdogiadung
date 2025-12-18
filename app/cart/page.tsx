@@ -3,7 +3,7 @@
 import { useState } from "react"
 import Link from "next/link"
 import { X, Plus, Minus, ShoppingCart } from "lucide-react"
-import Header from "../components/shared/header/Header"
+import Header from "../components/shared/header/header"
 import Footer from "../components/shared/footer/Footer"
 import styles from "./cart.module.css"
 

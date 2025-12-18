@@ -1,4 +1,4 @@
-import Header from "@/app/components/shared/header/Header"
+import Header from "@/app/components/shared/header/header"
 import Footer from "@/app/components/shared/footer/Footer"
 import styles from "./about.module.css"
 

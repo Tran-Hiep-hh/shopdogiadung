@@ -1,4 +1,4 @@
-import Header from "./components/shared/header/Header"
+import Header from "./components/shared/header/header"
 import Hero from "./components/shared/hero/hero"
 import ProductGrid from "./components/home/product-grid/product-grid"
 import Footer from "./components/shared/footer/Footer"

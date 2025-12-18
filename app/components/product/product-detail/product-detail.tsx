@@ -3,11 +3,14 @@
 import { useState } from "react"
 import { Heart, Share2, Star } from "lucide-react"
 import styles from "./product-detail.module.css"
+import { useCart } from "@/app/cart-context/cart-context"
+
 
 export default function ProductDetail() {
   const [quantity, setQuantity] = useState(1)
   const [isFavorite, setIsFavorite] = useState(false)
   const [activeImage, setActiveImage] = useState(0)
+  const { addToCart } = useCart()
 
   const images = [
     "/m-y-h-t-b-i-hi-n---i.jpg",
@@ -22,9 +25,24 @@ export default function ProductDetail() {
     { rating: 4, text: "Tốt nhưng hơi lớn hơn dự tính." },
   ]
 
+  const product = {
+    id: 1,
+    name: "Máy Hút Bụi Thông Minh Philips Series 3000",
+    price: 2890000,
+    image: images[0],
+    category: "Thiết bị làm sạch",
+  }
+
   const handleQuantityChange = (e:any) => {
     const value = Number.parseInt(e.target.value)
     if (value > 0) setQuantity(value)
+  }
+
+  const handleAddToCart = () => {
+    for (let i = 0; i < quantity; i++) {
+      addToCart(product)
+    }
+    alert(`Đã thêm ${quantity} sản phẩm vào giỏ hàng!`)
   }
 
   return (
@@ -147,7 +165,9 @@ export default function ProductDetail() {
           </div>
 
           <div className={styles.buttons}>
-            <button className={styles.addToCartBtn}>Thêm vào giỏ hàng</button>
+            <button className={styles.addToCartBtn} onClick={handleAddToCart}>
+              Thêm vào giỏ hàng
+            </button>
             <button className={styles.buyNowBtn}>Mua ngay</button>
           </div>
         </div>

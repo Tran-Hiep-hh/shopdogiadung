@@ -1,9 +1,12 @@
 "use client"
 
+import type React from "react"
+
 import { Heart, ShoppingCart } from "lucide-react"
 import { useState } from "react"
 import Link from "next/link"
 import styles from "./product-card.module.css"
+import { useCart } from "@/app/cart-context/cart-context"
 
 interface ProductCardProps {
   product: {
@@ -17,11 +20,19 @@ interface ProductCardProps {
 
 export default function ProductCard({ product }: ProductCardProps) {
   const [isFavorite, setIsFavorite] = useState(false)
+  const { addToCart } = useCart()
 
   const formattedPrice = new Intl.NumberFormat("vi-VN", {
     style: "currency",
     currency: "VND",
   }).format(product.price)
+
+  const handleAddToCart = (e: React.MouseEvent) => {
+    e.preventDefault()
+    e.stopPropagation()
+    addToCart(product)
+    alert(`Đã thêm "${product.name}" vào giỏ hàng!`)
+  }
 
   return (
     <Link href={`/product/${product.id}`}>
@@ -62,13 +73,7 @@ export default function ProductCard({ product }: ProductCardProps) {
           </div>
 
           {/* Add to Cart Button */}
-          <button
-            onClick={(e) => {
-              e.preventDefault()
-              e.stopPropagation()
-            }}
-            className={styles.addToCartButton}
-          >
+          <button onClick={handleAddToCart} className={styles.addToCartButton}>
             <ShoppingCart size={18} />
             <span className={styles.buttonText}>Thêm giỏ</span>
             <span className={styles.buttonTextShort}>Thêm</span>

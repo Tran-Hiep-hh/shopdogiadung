@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import Header from "../components/shared/header/Header"
+import Header from "../components/shared/header/header"
 import Footer from "../components/shared/footer/Footer"
 import styles from "./policies.module.css"
 
